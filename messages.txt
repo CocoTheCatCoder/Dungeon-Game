@@ -1,0 +1,3 @@
+Map is greater than 1600 characters, or [40x40]
+Map is less than 1600 characters, or [40x40]
+Map is equal to 1600 characters, or [40x40]
