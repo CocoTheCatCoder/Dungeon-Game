@@ -1,4 +1,4 @@
-const directory = "../maps/";
+const directory = "./maps/";
 function loadmap(dir) {
     const fs = require("fs");
     let path = directory.concat(dir.concat(".txt"));
