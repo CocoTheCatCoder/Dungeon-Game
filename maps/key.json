@@ -1,9 +1,6 @@
 {
     "one": {
-        "dimensions": {
-            "x": "40",
-            "y": "40"
-        },
+        "dimensions": ["40","40"],
         "directory": "one.txt"
     }
 }
