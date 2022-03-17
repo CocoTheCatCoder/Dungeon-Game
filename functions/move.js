@@ -8,10 +8,10 @@ function getIndex(){
     let i = 0;
     for(var a=0;a<t.length;a++){
         m.push(t[a]);
-        if(["@"].includes(t[a])){
-            tI == a;
+        if(t[a].includes("@")){
+            tI += a;
             for(var b=0;b<t[a].length;b++){
-                if(t[a][b]=="@"){ i == b };
+                if(t[a][b]=="@"){ i += b };
             };
         };
     };
