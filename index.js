@@ -4,4 +4,5 @@ const rl = require('./rl.js');
 console.log(Loadmap("one"));
 rl.on('line', function(r){
     move(r);
+    Loadmap("one");
 });

@@ -18,18 +18,54 @@ function getIndex(){
     return { m,tI,i };
 };
 
+function writeLine(nS,cS,lI,d,m){
+    fs.writeFileSync(game,"",function(err){
+        if(err) throw err;
+    });
+    if(["w","s"].includes(d)){
+        if(d=="w"){
+            for(var i=0;i<m.length;i++){
+                if(i==lI-1){
+                    fs.appendFileSync(game,nS,function(err){
+                        if(err) throw err;
+                        fs.appendFileSync(game,cS,function(err){
+                            if(err) throw err;
+                            i += 2;
+                        });
+                    });
+                }else{
+                    fs.appendFileSync(game,m[i],function(err){
+                        if(err) throw err;
+                    });
+                };
+            };
+        };
+    };
+};
+
 function drawLine(d){
-    let data = getIndex()
-    switch(d){
-        case "w":
-            console.log(data);
-            break;
-        case "a":
-            break;
-        case "s":
-            break;
-        case "d":
-            break;
+    if(["w","s"].includes(d)){
+        let data = getIndex()
+        let nStrT;
+        if(d=="w"){
+            nStrT = data.m[data.tI-1];
+        }else{
+            nStrT = data.m[data.tI+1];
+        };
+        const cStrT = data.m[data.tI];
+        let uStr = "";
+        let cStr = "";
+        for(var i=0;i<nStrT.length;i++){
+            if(i==data.i){
+                uStr += "@";
+            }else{ uStr += nStrT[i] };
+        };
+        for(var i=0;i<cStrT.length;i++){
+            if(i==data.i){
+                cStr += " ";
+            }else{ cStr += cStrT[i] };
+        };
+        writeLine(uStr,cStr,data.tI,d,data.m)
     };
 };
 
